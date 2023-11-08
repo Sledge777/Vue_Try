@@ -1,5 +1,5 @@
 <template>
-    <div v-if="lists.length <= 0" style="color: red;font-size: 200px;">pizda</div>
+    <div v-if="lists.length <= 0" style="color: red;font-size: 150px;">список постов пуст</div>
     <div v-else>
         <post-item 
         v-for="list in lists" 

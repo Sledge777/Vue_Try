@@ -8,13 +8,13 @@
                 @getPost="add"
             />
         </my-dialog>
-        
         <post-list :lists="lists" @remove="remove"/>
     </div>
 </template>
 <script>
 import PostList from "@/components/PostList";
 import PostForm from "@/components/PostForm";
+import axios from "axios"
 
 export default {
     components: {
@@ -22,11 +22,7 @@ export default {
     },
     data() {
         return {
-            lists: [
-            {id:1, title:'ara, pizda', description: 'post about pixda'},
-            {id:2, title:'ara, pizda', description: 'post about pixda'},
-            {id:3, title:'ara, pizda', description: 'post about pixda'},
-        ],
+            lists: [],
         dialogVisible: false,
         }
     },
@@ -39,7 +35,21 @@ export default {
         },
         showDialog() {
             this.dialogVisible = true;
+        },
+        async fetchLists() {
+            
+            try {
+                const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10');
+                console.log(response)
+                this.lists = response.data
+            }catch {
+                alert('пизда')
+            }
+            
         }
+    },
+    mounted() {
+        this.fetchLists();
     }
 }
 </script>

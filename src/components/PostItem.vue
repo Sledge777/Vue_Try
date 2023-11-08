@@ -4,7 +4,7 @@
             <h1>Пост</h1>
             <div>id: {{ list.id }}</div>
             <div>Заголовок: {{ list.title }}</div>
-            <div>Описание: {{ list.description }}</div>
+            <div>Описание: {{ list.body }}</div>
         </div>
         <div>
             <first-Button

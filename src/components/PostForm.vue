@@ -5,7 +5,7 @@
         type="text" 
         placeholder="title"/>
         <my-input 
-        v-model="newList.description"
+        v-model="newList.body"
         type="text" 
         placeholder="description"/>
         <first-Button
@@ -20,7 +20,7 @@ export default {
         return {
             newList: {
                 title: '',
-                description: '', 
+                body: '', 
             }
         }
     },
@@ -29,7 +29,7 @@ export default {
             this.newLists.title = event.target.value
         },
         takeDescription(event) {
-            this.newLists.description = event.target.value
+            this.newLists.body = event.target.value
         // или так: @input = " newLists.description = $event.target.value"
         },
         add() {
@@ -37,7 +37,7 @@ export default {
             this.$emit('getPost',this.newList)
             this.newList = {
                 title: '',
-                description: ''
+                body: ''
             }
         }
     }
