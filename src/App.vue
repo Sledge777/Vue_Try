@@ -1,8 +1,16 @@
 <template>
     <div>
-        <first-Button
-        @click="showDialog"
-        >Создать пост</first-Button>
+        <div class="buttons">
+            <first-Button
+            @click="showDialog"
+            >Создать пост</first-Button>
+            <my-select 
+            v-model="selectedSort"
+            :options="sortOptions"
+            >
+
+            </my-select>
+        </div>
         <my-dialog v-model:show="dialogVisible">
             <post-form 
                 @getPost="add"
@@ -23,7 +31,12 @@ export default {
     data() {
         return {
             lists: [],
-        dialogVisible: false,
+            dialogVisible: false,
+            selectedSort: '',
+            sortOptions: [
+                {value: 'title', name: 'По названию'},
+                {value: 'body', name: 'По содержимому'}
+            ]
         }
     },
     methods: {
@@ -37,7 +50,7 @@ export default {
             this.dialogVisible = true;
         },
         async fetchLists() {
-            
+
             try {
                 const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10');
                 console.log(response)
@@ -50,6 +63,13 @@ export default {
     },
     mounted() {
         this.fetchLists();
+    },
+    watch: {
+        selectedSort(newValue) {
+            this.lists.sort((list1,list2) => {
+                return list1[newValue]?.localeCompare(list2[newValue])
+            })
+        }
     }
 }
 </script>
@@ -61,5 +81,9 @@ export default {
 }
 body {
     padding: 20px;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
 }
 </style>
