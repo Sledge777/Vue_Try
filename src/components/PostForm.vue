@@ -1,6 +1,7 @@
 <template>
     <form @submit.prevent>
         <my-input 
+        v-focus
         v-model="newList.title"
         type="text" 
         placeholder="title"/>
@@ -9,6 +10,7 @@
         type="text" 
         placeholder="description"/>
         <first-Button
+        style="margin-top: 10px;"
         @click="add"
         >Создать</first-Button>
     </form>

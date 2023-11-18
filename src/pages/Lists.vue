@@ -3,12 +3,14 @@
         <my-input
         v-model="search"
         placeholder="Поиск"
-         >
+        v-focus
+        >
         </my-input>
 
         <div class="buttons">
             <first-Button
             @click="showDialog"
+            style="margin-top: 10px;"
             >Создать пост</first-Button>
             <my-select 
             v-model="selectedSort"
@@ -34,7 +36,7 @@
             @click="changePage(pageNum)"
             >{{ pageNum }}</div>
         </div>
-        <div ref="observer" class="observe"></div>
+        <div v-intersection="fetchLists" class="observe"></div>
     </div>
 </template>
 <script>
@@ -96,20 +98,7 @@ export default {
     },
     mounted() {
         this.fetchLists();
-        const options = {
-            rootMargin: "0px",
-            threshold: 1.0,
-        };
-
-        const callback = (entries, observer) => {
-            if (entries[0].isIntersecting && this.page < this.maxLists) {
-               this.fetchLists()
-            }
-            
-        };
-
-        const observer = new IntersectionObserver(callback, options);
-        observer.observe(this.$refs.observer)
+       
 
     },
     computed: {

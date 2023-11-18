@@ -1,7 +1,8 @@
 <template>
     <div class="navBar">
-        asdas
-        <div class="sub_NavBar">asdasdas</div>
+        <first-Button @click="$router.push('/')">Главная</first-Button>
+        <first-Button @click="$router.push('/Lists')">Посты</first-Button>
+        <first-Button @click="$router.push('/About')">О нас</first-Button>
     </div>
 </template>
 <script>
@@ -12,7 +13,10 @@ export default {
 <style scoped>
 .navBar {
     background-color: teal;
-    height: 200px;
+    height: 50px;
     width:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
 }
 </style>
