@@ -1,16 +1,21 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Main from '@/pages/Main';
+import Lists from '@/pages/Lists'
 
-router = [
+const routes = [
     {
         path: '/',
         component: Main
+    },
+    {
+        path: '/Lists',
+        component: Lists
     }
 ]
 
-const routers = createRouter({
+const router = createRouter({
     routes,
     history: createWebHistory(process.env.BASE_URL),
 })
 
-export default routers;
+export default router;

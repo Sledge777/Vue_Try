@@ -1,11 +1,11 @@
 import { createApp } from 'vue';
 import App from './App';
 import components from '@/components/UI';
-import routers from '@/routers/router';
+import router from '@/routers/router';
 
 const app = createApp(App);
 
 components.forEach((component) => {app.component(component.name,component)});
 app
-    .use(routers)
+    .use(router)
     .mount('#app');
