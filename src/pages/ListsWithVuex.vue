@@ -20,7 +20,7 @@
             :options="sortOptions"
             >
             </my-select>
-            
+
         </div>
         <my-dialog v-model:show="dialogVisible">
             <post-form 
@@ -62,7 +62,6 @@ export default {
     methods: {
         ...mapActions ({
             fetchLists: 'list/fetchLists',
-            changePage: 'list/changePage',
         }),
         ...mapMutations ({
             setPage: 'list/setPage',
