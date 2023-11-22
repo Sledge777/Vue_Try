@@ -98,8 +98,6 @@ export default {
     },
     mounted() {
         this.fetchLists();
-       
-
     },
     computed: {
         sortedLists() {

@@ -3,6 +3,7 @@ import Main from '@/pages/Main';
 import Lists from '@/pages/Lists'
 import about from '@/pages/about'
 import postId from '@/pages/postId'
+import ListsWithVuex from '@/pages/ListsWithVuex'
 
 const routes = [
     {
@@ -20,6 +21,10 @@ const routes = [
     {
         path: '/post/:id',
         component: postId
+    },
+    {
+        path: '/vuex',
+        component: ListsWithVuex
     }
 ]
 

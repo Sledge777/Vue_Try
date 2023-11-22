@@ -3,6 +3,7 @@
         <first-Button @click="$router.push('/')">Главная</first-Button>
         <first-Button @click="$router.push('/Lists')">Посты</first-Button>
         <first-Button @click="$router.push('/About')">О нас</first-Button>
+        <first-Button @click="$router.push('/vuex')">Vuex</first-Button>
     </div>
 </template>
 <script>
